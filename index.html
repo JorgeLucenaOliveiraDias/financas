@@ -14,24 +14,51 @@
 <link rel="manifest" href="manifest.json">
 <style>
   :root { color-scheme: dark; }
-  html, body { margin: 0; height: 100%; background: #0A0F1E; color: #EBF0FA;
+  html, body { margin: 0; min-height: 100%; background: #0A0F1E; color: #EBF0FA;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  main { min-height: 100%; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; gap: 20px; padding: 24px 16px; box-sizing: border-box; text-align: center; }
+  main { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 18px; padding: 24px 16px; box-sizing: border-box; text-align: center; }
   img { width: 112px; height: 112px; border-radius: 26px; }
-  p { margin: 0; opacity: .75; font-size: 15px; }
+  h1 { margin: 0; font-size: 22px; }
+  p { margin: 0; opacity: .8; font-size: 15px; line-height: 1.5; }
+  ol { text-align: left; margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.9; max-width: 340px; }
+  b.az { color: #5B9DF5; } b.mo { color: #E1AD01; }
   a { display: inline-block; padding: 12px 22px; border-radius: 12px; background: #2F80ED;
     color: #fff; text-decoration: none; font-weight: 600; }
+  a.sec { background: transparent; border: 1px solid #2A3550; color: #A9B4C3; font-weight: 500; font-size: 14px; }
+  .hide { display: none; }
 </style>
 </head>
 <body>
 <main>
   <img src="icone-512.png" alt="">
-  <p>Abrindo suas finanças…</p>
-  <a id="abrir" href="https://script.google.com/macros/s/AKfycbxAC1fIYZS6CGD-cUwBXAW4dJaouXfY0VIjWrylAklJkEK3vTDb7CRWBrUdzNHJxVQ/exec">Abrir</a>
+  <div id="instalar" class="hide">
+    <h1><b class="az">J</b>&amp;<b class="mo">G</b> Finanças</h1>
+    <p style="margin:8px 0 16px">Instale na Tela de Início:</p>
+    <ol>
+      <li>Toque em <b>Compartilhar</b> (quadrado com seta)</li>
+      <li>Toque em <b>Adicionar à Tela de Início</b></li>
+      <li>Abra pelo ícone <b>J&amp;G</b> e entre com sua conta Google</li>
+    </ol>
+    <p style="margin-top:20px"><a class="sec" id="abrir2" href="#">Abrir no navegador mesmo assim</a></p>
+  </div>
+  <div id="abrindo" class="hide">
+    <p>Abrindo suas finanças…</p>
+    <p style="margin-top:14px"><a id="abrir" href="#">Abrir</a></p>
+  </div>
 </main>
 <script>
-  setTimeout(function () { location.replace(document.getElementById('abrir').href); }, 600);
+  var APP = 'https://script.google.com/macros/s/AKfycbxAC1fIYZS6CGD-cUwBXAW4dJaouXfY0VIjWrylAklJkEK3vTDb7CRWBrUdzNHJxVQ/exec';
+  document.getElementById('abrir').href = APP;
+  document.getElementById('abrir2').href = APP;
+  var instalado = window.navigator.standalone === true ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if (instalado) {
+    document.getElementById('abrindo').className = '';
+    setTimeout(function () { location.replace(APP); }, 400);
+  } else {
+    document.getElementById('instalar').className = '';
+  }
 </script>
 </body>
 </html>
