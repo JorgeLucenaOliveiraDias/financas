@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>J&amp;G Finanças</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="J&amp;G Finanças">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0A0F1E">
+<link rel="apple-touch-icon" sizes="180x180" href="icone-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icone-192.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0A0F1E; color: #EBF0FA;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  main { min-height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 20px; padding: 24px 16px; box-sizing: border-box; text-align: center; }
+  img { width: 112px; height: 112px; border-radius: 26px; }
+  p { margin: 0; opacity: .75; font-size: 15px; }
+  a { display: inline-block; padding: 12px 22px; border-radius: 12px; background: #2F80ED;
+    color: #fff; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icone-512.png" alt="">
+  <p>Abrindo suas finanças…</p>
+  <a id="abrir" href="https://script.google.com/macros/s/AKfycbxAC1fIYZS6CGD-cUwBXAW4dJaouXfY0VIjWrylAklJkEK3vTDb7CRWBrUdzNHJxVQ/exec">Abrir</a>
+</main>
+<script>
+  setTimeout(function () { location.replace(document.getElementById('abrir').href); }, 600);
+</script>
+</body>
+</html>
